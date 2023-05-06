@@ -11,6 +11,17 @@
    - `which` на Linux
    - `where` на Windows
 
+2. Какой путь на вашей машине к `python.exe` (`which python` или `where python`)? 
+   -  C:\Users\mrale>where python
+   -  C:\Users\mrale\anaconda3\python.exe
+   -  C:\Users\mrale\AppData\Local\Microsoft\WindowsApps\python.exe
+   
+   Какой путь к `pip` (`which pip` или `where pip`)? Относятся ли эти пути к одной папке?
+   - C:\Users\mrale>where pip
+   - C:\Users\mrale\pip
+   - C:\Users\mrale\anaconda3\Scripts\pip.exe
+
+
 ### Что такое pip и pip3?
 
 `pip` и `pip3` - это утилиты для управления пакетами в Python. `pip` обычно используется для Python 2, а `pip3` - для Python 3.
@@ -22,17 +33,7 @@
 Команда `pip` вызывается без указания версии Python, что может привести к проблемам совместимости при использовании Python 2 и Python 3. Поэтому, для управления пакетами в Python 3 рекомендуется использовать `pip3`.
 
 
-2. Какой путь на вашей машине к `python.exe` (`which python` или `where python`)? 
-   -  C:\Users\mrale>where python
-   -  C:\Users\mrale\anaconda3\python.exe
-   -  C:\Users\mrale\AppData\Local\Microsoft\WindowsApps\python.exe
-   
-   Какой путь к `pip` (`which pip` или `where pip`)? Относятся ли эти пути к одной папке?
-   - C:\Users\mrale>where pip
-   - C:\Users\mrale\pip
-   - C:\Users\mrale\anaconda3\Scripts\pip.exe
-
-4. Покажите, в какой папке находится исходный код пакета `pandas` (если он установлен).
+3. Покажите, в какой папке находится исходный код пакета `pandas` (если он установлен).
    - C:\Users\mrale>pip3 show pandas | findstr "Location"
    
      Location: c:\users\mrale\anaconda3\lib\site-packages
@@ -42,12 +43,35 @@
      Location: c:\users\mrale\anaconda3\lib\site-packages
     
 
-5. Укажите версию установаленного пакета `pandas`.
+4. Укажите версию установаленного пакета `pandas`.
   - C:\Users\mrale>pip show pandas | findstr "Version"
+
     Version: 1.4.4
 
 
 ## С. Первое виртуальное окружение
+
+#!/bin/bash
+
+1. создаем новое виртуальное окружение и активируем его
+- python3 -m venv my_env
+- source my_env/bin/activate
+
+2. попытаемся выйти из виртуального окружения
+- deactivate
+
+3. войдем в виртуальное окружение снова
+- source my_env/bin/activate
+
+4. проверяем, на каком шаге возникает проблема (если возникает)
+- python -c "import pandas"
+- pip install pandas
+
+5. показываем установленные пакеты и сохраняем их в requirements.txt
+- pip freeze > requirements.txt
+- pip list
+
+
 
 1. Создайте новое локальное виртуальное окружение `my_env` с помощью `venv` и войдите в него.
 
