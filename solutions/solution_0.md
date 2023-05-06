@@ -34,9 +34,11 @@
 
 4. Покажите, в какой папке находится исходный код пакета `pandas` (если он установлен).
    - C:\Users\mrale>pip3 show pandas | findstr "Location"
+   
      Location: c:\users\mrale\anaconda3\lib\site-packages
 
    - C:\Users\mrale>pip show pandas | findstr "Location"
+   
      Location: c:\users\mrale\anaconda3\lib\site-packages
     
 
