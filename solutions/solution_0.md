@@ -51,47 +51,57 @@
 
 ## С. Первое виртуальное окружение
 
-#!/bin/bash
-
-1. создаем новое виртуальное окружение и активируем его
+1. Создаем новое виртуальное окружение и активируем его
 - python3 -m venv my_env
-- source my_env/bin/activate
+- activate my_env
 
-2. попытаемся выйти из виртуального окружения
+2. Попытаемся выйти из виртуального окружения
 - deactivate
 
-3. войдем в виртуальное окружение снова
-- source my_env/bin/activate
+3. Войдем в виртуальное окружение снова
+- activate my_env
 
-4. проверяем, на каком шаге возникает проблема (если возникает)
+4. Проверяем, на каком шаге возникает проблема (если возникает)
 - python -c "import pandas"
 - pip install pandas
 
-5. показываем установленные пакеты и сохраняем их в requirements.txt
+5. Показываем установленные пакеты и сохраняем их в requirements.txt
 - pip freeze > requirements.txt
 - pip list
-
-
-
-1. Создайте новое локальное виртуальное окружение `my_env` с помощью `venv` и войдите в него.
-
-2. Выйдите. Удалось? Снова войдите.
-
-3. Повторите команды из раздела A и B выше. На каком шаге у вас возникла проблема?
-
-5. Установаите пакет `pandas` в локальное виртуальное окружение `my_env`. Удается ли выполнить предыдущее задание?
-
-4. Покажите, какие пакеты питона установлены в окружении `my_env`. Сохраните список пакетов в файл `requirements.txt`
-   (Подсказка: понадобится `pip` и `>`).
 
 ## D. Сравниваем глобальное окружение и `my_env`
 
 1. Чем отличается пути к `python.exe` в глобальном и в виртуальном окружении `my_env`?
 
+1. C:\Users\mrale>where python
+- C:\Users\mrale\anaconda3\python.exe
+- C:\Users\mrale\AppData\Local\Microsoft\WindowsApps\python.exe
+
+2. (my_env) C:\Users\mrale>where python
+- C:\Users\mrale\anaconda3\python.exe
+- C:\Users\mrale\AppData\Local\Microsoft\WindowsApps\python.exe
+
 2. Найдите, где находится код `pandas` в глобальном и в виртуальном окружении.
    Покажите, что это разные директории.
+   - C:\Users\mrale>pip3 show pandas | findstr "Location"
+  
+     Location: c:\users\mrale\anaconda3\lib\site-packages
+
+   - (my_env) C:\Users\mrale>pip3 show pandas | findstr "Location"
+   
+     Location: c:\users\mrale\anaconda3\lib\site-packages
+
 
 3. В глобальном и локальном окружении стоит `pandas` одной или разных версий?
+
+-C:\Users\mrale>pip3 show pandas | findstr "Version"
+
+Version: 1.4.4
+
+
+- (my_env) C:\Users\mrale>pip3 show pandas | findstr "Version"
+
+Version: 1.4.4
 
 4. Если версии одинаковые, измените версию `pandas` в локальном окружении на другую, например,
    более низкую. Приведите пример, зачем это может быть нужно в реальной работе?
